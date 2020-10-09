@@ -3,7 +3,7 @@
     <!-- Go Back  -->
     <div class="option" title="back" @click="goBack">
       <div class="icon">
-        <i class="fas fa-arrow-left"></i>
+        <FontAwesomeIcon :icon="['fas', 'arrow-left']" />
       </div>
     </div>
     <!-- Refresh Record -->
@@ -14,7 +14,7 @@
       @click="refreshRecord"
     >
       <div class="icon">
-        <i class="fas fa-redo"></i>
+        <FontAwesomeIcon :icon="['fas', 'redo']" />
       </div>
     </div>
 
@@ -29,7 +29,7 @@
       "
     >
       <div class="icon">
-        <i class="fas fa-save"></i>
+        <FontAwesomeIcon :icon="['fas', 'save']" />
       </div>
     </div>
 
@@ -41,14 +41,25 @@
       @click="deleteRecord"
     >
       <div class="icon">
-        <i class="fas fa-trash"></i>
+        <FontAwesomeIcon :icon="['fas', 'trash']" />
       </div>
     </div>
   </div>
 </template>
 <script>
 import Actions from "../lib/actions";
+// fontawesome icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faTrash,
+  faSave,
+  faRedo,
+  faArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faTrash, faSave, faRedo, faArrowLeft);
 export default {
+  components: { FontAwesomeIcon },
   props: ["screen"],
   methods: {
     goBack() {

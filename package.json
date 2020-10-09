@@ -1,0 +1,25 @@
+{
+  "name": "vuejs-overview-detail-screen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": "index.js",
+  "keywords": [
+    "vuejs-overview-detail-screen",
+    "overview-detail-screen"
+  ],
+  "repository": "https://github.com/manthanpl93/vuejs-overview-detail-screen.git",
+  "bugs": {
+    "url": "https://github.com/manthanpl93/vuejs-overview-detail-screen/issues"
+  },
+  "homepage": "https://github.com/manthanpl93/vuejs-overview-detail-screen#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": "Manthan Patel",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/vue-fontawesome": "2"
+  }
+}

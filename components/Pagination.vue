@@ -2,7 +2,7 @@
   <div class="pagination">
     <div class="option page-records-size">
       <div class="icon" title="Page size">
-        <i class="fas fa-align-justify"></i>
+        <FontAwesomeIcon :icon="['fas', 'align-justify']" />
       </div>
       <div class="records-size-options">
         <select :value="screen.pagination.limit" @input="changePageRecordsSize">
@@ -28,7 +28,7 @@
         @click="this.previosPage"
         title="Previous"
       >
-        <i class="fas fa-chevron-left"></i>
+        <FontAwesomeIcon :icon="['fas', 'chevron-left']" />
       </div>
       <div
         class="icon next"
@@ -38,15 +38,25 @@
         @click="this.nextPage"
         title="Next"
       >
-        <i class="fas fa-chevron-right"></i>
+        <FontAwesomeIcon :icon="['fas', 'chevron-right']" />
       </div>
     </div>
   </div>
 </template>
 <script>
 import Actions from "../lib/actions";
+// fontawesome icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faAlignJustify,
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faAlignJustify, faChevronLeft, faChevronRight);
 export default {
   props: ["screen"],
+  components: { FontAwesomeIcon },
   mounted() {
     const { screen } = this;
     if (!screen.search["category"])

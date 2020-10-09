@@ -31,14 +31,19 @@
       </option>
     </select>
     <div class="icon" title="Search" @click="search">
-      <i class="fas fa-search"></i>
+      <FontAwesomeIcon :icon="['fas', 'search']" />
     </div>
   </div>
 </template>
 <script>
 import Actions from "../lib/actions";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faSearch);
 export default {
   props: ["screen"],
+  components: { FontAwesomeIcon },
   mounted() {
     const { screen } = this;
     if (!screen.search["category"])

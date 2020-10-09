@@ -22,28 +22,31 @@
               "
             >
               {{ item.title }}
-              <i
+              <!-- Ascending Icon -->
+              <FontAwesomeIcon
                 v-if="
                   screen.columnsOrder[item.value] &&
                   screen.columnsOrder[item.value].order == 'ascending'
                 "
-                class="fas fa-caret-up"
-              ></i>
-              <i
+                :icon="['fas', 'caret-up']"
+              />
+              <!-- decending Icon -->
+              <FontAwesomeIcon
                 v-if="
                   screen.columnsOrder[item.value] &&
                   screen.columnsOrder[item.value].order == 'decending'
                 "
-                class="fas fa-caret-down"
-              ></i>
-              <i
+                :icon="['fas', 'caret-down']"
+              />
+              <!-- No Order Icon -->
+              <FontAwesomeIcon
                 v-if="
                   item.advanceOptions &&
                   item.advanceOptions.ordering &&
                   !screen.columnsOrder[item.value] == true
                 "
-                class="fas fa-minus"
-              ></i>
+                :icon="['fas', 'minus']"
+              />
             </div>
             <div
               v-if="
@@ -63,7 +66,7 @@
                 "
                 @mouseleave="() => (hoveredAdvanceOptions = null)"
               >
-                <i class="fas fa-bars"></i>
+                <FontAwesomeIcon :icon="['fas', 'bars']" />
               </div>
               <div
                 class="options"
@@ -77,15 +80,21 @@
                 "
               >
                 <div class="option" @click="setColumnOrder(item, 'ascending')">
-                  <div class="icon"><i class="fas fa-caret-up"></i></div>
+                  <div class="icon">
+                    <FontAwesomeIcon :icon="['fas', 'caret-up']" />
+                  </div>
                   <div class="title">Ascending</div>
                 </div>
                 <div class="option" @click="setColumnOrder(item, 'decending')">
-                  <div class="icon"><i class="fas fa-caret-down"></i></div>
+                  <div class="icon">
+                    <FontAwesomeIcon :icon="['fas', 'caret-down']" />
+                  </div>
                   <div class="title">Decending</div>
                 </div>
                 <div class="option" @click="setColumnOrder(item, 'no order')">
-                  <div class="icon"><i class="fas fa-minus"></i></div>
+                  <div class="icon">
+                    <FontAwesomeIcon :icon="['fas', 'minus']" />
+                  </div>
                   <div class="title">No order</div>
                 </div>
               </div>
@@ -124,7 +133,18 @@
 </template>
 <script>
 import Actions from "../lib/actions";
+// fontawesome icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faCaretUp,
+  faCaretDown,
+  faMinus,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faCaretUp, faCaretDown, faMinus, faBars);
 export default {
+  components: { FontAwesomeIcon },
   props: ["screen"],
   mounted() {},
   data() {

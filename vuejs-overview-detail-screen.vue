@@ -17,7 +17,7 @@
             }
           "
         >
-          <i class="fas fa-filter"></i>
+          <FontAwesomeIcon :icon="['fas', 'filter']" />
         </div>
       </div>
 
@@ -53,6 +53,11 @@ import FilterMenu from "./components/FilterMenu";
 import OverviewTable from "./components/OverviewTable";
 import Footer from "./components/Footer";
 import Actions from "./lib/actions";
+// fontawesome icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faFilter);
 export default {
   props: [
     "customVariables",
@@ -70,6 +75,7 @@ export default {
     FilterMenu,
     Footer,
     OverviewTable,
+    FontAwesomeIcon,
   },
   data() {
     return {

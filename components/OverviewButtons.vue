@@ -8,21 +8,27 @@
       @click="addNewRecord"
     >
       <div class="icon">
-        <i class="fas fa-plus"></i>
+        <FontAwesomeIcon :icon="['fas', 'plus']" />
       </div>
     </div>
     <!-- Refresh Data -->
     <div class="option" title="Refresh" @click="refreshData">
       <div class="icon">
-        <i class="fas fa-redo"></i>
+        <FontAwesomeIcon :icon="['fas', 'redo']" />
       </div>
     </div>
   </div>
 </template>
 <script>
 import Actions from "../lib/actions";
+// fontawesome icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPlus, faRedo } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faPlus, faRedo);
 export default {
   props: ["screen"],
+  components: { FontAwesomeIcon },
   methods: {
     addNewRecord() {
       const { screen } = this;
