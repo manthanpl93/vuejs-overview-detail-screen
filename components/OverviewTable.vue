@@ -10,7 +10,15 @@
     >
       <thead>
         <tr>
-          <th v-for="(item, index) in screen.screenConfig.records" :key="index">
+          <th
+            v-for="(item, index) in screen.screenConfig.records"
+            :key="index"
+            :style="
+              item.advanceOptions &&
+              item.advanceOptions.width &&
+              `width:${item.advanceOptions.width}`
+            "
+          >
             <div
               class="column"
               @mouseenter="() => (hoveredColumnIndex = index)"
