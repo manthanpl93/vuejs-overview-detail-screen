@@ -1,0 +1,88 @@
+.screen {
+    .footer {
+        border: 1px solid #eae8e5;
+        .screen-options {
+            display: flex;
+            background-color: #fefefe;
+            .left {
+                display: flex;
+                .option {
+                    cursor: pointer;
+                    &[title="back"] {
+                        background: #234292;
+                        .icon {
+                            color: #fff !important;
+                        }
+                    }
+                }
+                .icon {
+                    color: #234292;
+                }
+            }
+            .centre {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                .search-category,
+                .search-box {
+                    width: 8rem;
+                    font-size: 0.8rem;
+                    margin: 0 0.2rem;
+                }
+            }
+            .right {
+                display: flex;
+                .summary {
+                    font-size: 0.9rem;
+                    display: flex;
+                    .data {
+                        display: flex;
+                        padding: 8px;
+                        .title {
+                            margin-right: 0.6rem;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .pagination {
+                    .page-records-size {
+                        border: 1px solid #eae8e5;
+                    }
+                }
+            }
+            .option {
+                cursor: pointer;
+                display: flex;
+                padding: 8px;
+                &.page-records-size {
+                    padding: 0px !important;
+                    margin: 8px !important;
+                }
+                .records-size-options {
+                    select {
+                        width: 3.2rem;
+                        font-size: 0.8rem;
+                        margin: 0 0.4rem;
+                        border: 0px !important;
+                        outline: 0px !important;
+                    }
+                }
+                .icon {
+                    margin: 0 4px;
+                }
+
+                .title {
+                    font-size: 14px;
+                }
+
+                &.pagination {
+                    .disabled {
+                        color: #9c9a9a;
+                        cursor: auto;
+                    }
+                }
+            }
+        }
+    }
+}

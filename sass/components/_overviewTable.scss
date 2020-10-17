@@ -1,0 +1,30 @@
+.screen {
+    .overview-data {
+        overflow-y: auto;
+        height: calc(100% - 3rem);
+        .table {
+            thead {
+                th {
+                    font-weight: 500;
+                    position: sticky;
+                    top: 0;
+                    background: #f7f7f7;
+                    text-align: center;
+                }
+            }
+            .highlight {
+                background: #fff4e6;
+            }
+            .menu {
+                background: #eadcc7;
+                cursor: pointer;
+                border-radius: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 1.3rem;
+                height: 1.3rem;
+            }
+        }
+    }
+}
