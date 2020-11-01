@@ -1,26 +1,14 @@
 <template>
   <div class="content-screen">
     <div v-if="screen.loading" class="loading-overlay">
-      <div class="logo">
-        <img src="https://i.gifer.com/ZZ5H.gif" />
-      </div>
+      <md-progress-spinner
+        :md-diameter="120"
+        :md-stroke="6"
+        md-mode="indeterminate"
+      ></md-progress-spinner>
     </div>
     <div v-if="screen.overview == true" class="screen overview">
-      <div class="title-frame">
-        <div class="options"></div>
-        <div
-          v-if="screenConfig.filter"
-          class="filter-icon"
-          @click="
-            () => {
-              this.filterVisible = true;
-            }
-          "
-        >
-          <FontAwesomeIcon :icon="['fas', 'filter']" />
-        </div>
-      </div>
-
+      <TitleFrame :screen="screen" />
       <FilterMenu v-if="filterVisible" :screen="screen" :ScreenUtility="this" />
       <OverviewTable :screen="screen" />
     </div>
@@ -48,16 +36,20 @@
   </div>
 </template>
 <script>
-import InputBox from "./components/InputBox";
-import FilterMenu from "./components/FilterMenu";
-import OverviewTable from "./components/OverviewTable";
-import Footer from "./components/Footer";
+import {
+  InputBox,
+  FilterMenu,
+  OverviewTable,
+  Footer,
+  TitleFrame,
+} from "./components";
 import Actions from "./lib/actions";
-// fontawesome icons
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faFilter);
+import "./vuejs-overview-detail-screen.css";
+//vuematerial.io
+import init from "./vue-material";
+init();
+import "vue-material/dist/vue-material.min.css";
+import "vue-material/dist/theme/default.css";
 export default {
   props: [
     "customVariables",
@@ -75,7 +67,7 @@ export default {
     FilterMenu,
     Footer,
     OverviewTable,
-    FontAwesomeIcon,
+    TitleFrame,
   },
   data() {
     return {
